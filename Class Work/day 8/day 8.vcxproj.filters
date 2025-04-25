@@ -15,38 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="day07.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="prg01.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="prg02.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="prg03.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="do_while.cpp">
+    <ClCompile Include="prg1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="authentication.cpp">
+    <ClCompile Include="naturalNo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="series.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sum_product.cpp">
+    <ClCompile Include="primeFunction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mulTable.cpp">
+    <ClCompile Include="factorial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="prodEvenOdd.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="primeFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
