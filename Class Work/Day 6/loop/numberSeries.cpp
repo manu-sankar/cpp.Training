@@ -1,4 +1,4 @@
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 int main() {
 	int itr1, itr2, n, count;
@@ -21,4 +21,4 @@ int main() {
 		itr1++;
 	}
 	return 0;
-}
+}*/
