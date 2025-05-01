@@ -1,6 +1,6 @@
 #include <iostream>
 
-using namespace std;	// using name space to use "cout" and "cin" 
+using namespace std;	
 
 int main()
 {
