@@ -6,7 +6,7 @@ int main() {
 	cout <<"Total No of array elements = "<< sizeof(a) / sizeof(a[0]) << endl;
 	for (i = 0;i < sizeof(a) / sizeof(a[0]);i++) {
 		cout << a[i] << endl;
-	//ssum+=a[i];
+	//sum+=a[i];
 	}
 	//cout <<"Sum of all array elements ="<< sum << endl;
 	int index1, index2;
