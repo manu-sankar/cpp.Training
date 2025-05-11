@@ -1,7 +1,7 @@
 #include<iostream>
 #include<cmath>
 using namespace std;
-int dec2Base(int ,int);
+int dec2Base(int, int);
 int base2Dec(int, int);
 int main() {
 	cout << dec2Base(55, 8) << endl;
@@ -9,7 +9,7 @@ int main() {
 	return 0;
 }
 int dec2Base(int n, int base) {
-	int r,place=0, sum=0;
+	int r, place = 0, sum = 0;
 	while (n) {
 		r = n % base;
 		sum += r * pow(10, place);
