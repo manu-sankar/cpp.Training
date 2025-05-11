@@ -2,17 +2,15 @@
 #include<cmath>
 using namespace std;
 int main() {
+	int r, base=1,bin=0;
 	int n;
 	cin >> n;
-	int place = 0;
-	int dec = 0;
-	int temp = n;
-	while (temp) {
-		int lastDigit = temp % 10;
-		temp /= 10;
-		dec += lastDigit * pow(2, place);
-		place++;
+	while (n>0) {
+		r = n % 2;
+		bin += r *base;
+		base *= 10;
+		n /= 2;
 	}
-	cout << dec;
+	cout << bin;
 	return 0;
 }
