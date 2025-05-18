@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 struct student {
 	int rollno;
 	string name;
