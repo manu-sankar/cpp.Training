@@ -51,7 +51,7 @@ public:
 		{
 		case 1:
 			cout << "Balance" << endl;
-			cout << bal() << endl;;
+			cout << bal() << endl;
 			break;
 		case 2:
 			cout << "Deposit" << endl;
