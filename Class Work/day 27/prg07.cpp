@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+class M;
+
 class T
 {
 private:
@@ -31,4 +33,5 @@ public:
 	{
 		cout << j << endl;
 	}
+
 };
