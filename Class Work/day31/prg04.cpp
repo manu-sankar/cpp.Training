@@ -5,7 +5,7 @@ class Nums
 {
 protected:
 	int x, y;
-protected:
+public:
 	void setVal(int x, int y)
 	{
 		this->x = x;
