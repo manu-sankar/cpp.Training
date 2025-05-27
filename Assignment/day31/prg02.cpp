@@ -12,7 +12,13 @@ public:
 		this->eid = eid;
 		this->name = name;
 	}
+	void empDisp()
+	{
+		cout << "ID " << eid;
+		cout << "Name " << name;
+	}
 };
+
 
 class Developer :public Employee
 {
@@ -35,20 +41,40 @@ public:
 	{
 		this->teamsize = teamsize;
 	}
+
+	void dispManager()
+	{
+		empDisp();
+	}
 };
 
 
 class TechLead :public Developer, public Manager
 {
+private:
+	float salCodingHours, salTeamSize;
 public:
-	TechLead()
+	TechLead(int eid, string name, float codinghours, int teamsize, float salCodingHours, float salTeamSize) :Developer(eid, name, codinghours), Manager(eid, name, teamsize)
 	{
-
+		this->salCodingHours = salCodingHours;
+		this->salTeamSize = teamsize;
 	}
-	void CalculateSalary()
+	void calculateSal()
 	{
-
+		dispManager();
+		float codingHoursSal = 500 * salCodingHours;
+		cout << codingHoursSal;
+		float teamSizeSal = 5000 * teamSizeSal+codingHoursSal;
+		cout << teamSizeSal;
 	}
+
 };
 
+
+int main()
+{
+	TechLead lObj(1,"Manu", 8, 100, 500);
+	lObj.dispManager();
+	lObj.calculateSal();
+}
 
