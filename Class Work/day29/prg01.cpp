@@ -13,10 +13,10 @@ int arr[MAX];
 
 int enqueue(int v)
 {
-	if (rear == MAX-1)
+	if (rear == MAX)
 	{
 
-		cout << "Queue is empty" << endl;
+		cout << "Queue is full" << endl;
 		return EXIT_SUCCESS;
 	}
 	arr[rear] = v;
