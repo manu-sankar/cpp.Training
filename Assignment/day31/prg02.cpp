@@ -12,17 +12,13 @@ public:
 		this->eid = eid;
 		this->name = name;
 	}
-	void empDisp()
-	{
-		cout << "ID " << eid;
-		cout << "Name " << name;
-	}
+	
 };
 
 
 class Developer :public Employee
 {
-private:
+protected:
 	float codinghours;
 public:
 	Developer(int eid, string name,float codinghours):Employee(eid,name)
@@ -34,7 +30,7 @@ public:
 
 class Manager :public Employee
 {
-private:
+protected:
 	int teamsize;
 public:
 	Manager(int eid, string name,int teamsize):Employee(eid, name)
@@ -42,39 +38,40 @@ public:
 		this->teamsize = teamsize;
 	}
 
-	void dispManager()
+
+	void disp()
 	{
-		empDisp();
+		cout << "EmpId: " << eid << endl;
+		cout << "Name: " << name << endl;
 	}
+	
 };
 
 
 class TechLead :public Developer, public Manager
 {
 private:
-	float salCodingHours, salTeamSize;
+	float sal;
 public:
-	TechLead(int eid, string name, float codinghours, int teamsize, float salCodingHours, float salTeamSize) :Developer(eid, name, codinghours), Manager(eid, name, teamsize)
+	TechLead(int eid, string name, float codinghours, int teamsize, float sal) :Developer(eid, name, codinghours), Manager(eid, name, teamsize)
 	{
-		this->salCodingHours = salCodingHours;
-		this->salTeamSize = teamsize;
+		this->sal = sal;
 	}
 	void calculateSal()
 	{
-		dispManager();
-		float codingHoursSal = 500 * salCodingHours;
-		cout << codingHoursSal;
-		float teamSizeSal = 5000 * teamSizeSal+codingHoursSal;
-		cout << teamSizeSal;
+		float codingHoursSal = sal*codinghours;
+		cout <<"Salary based on coding " << codingHoursSal << endl;
+		float teamSizeSal = (5000 * teamsize)+ codingHoursSal;
+		cout <<"Salary based on coding and team " << teamSizeSal;
 	}
-
 };
+
 
 
 int main()
 {
-	TechLead lObj(1,"Manu", 8, 100, 500);
-	lObj.dispManager();
+	TechLead lObj(501,"Manu", 120, 5, 500);
+	lObj.disp();
 	lObj.calculateSal();
 }
 
