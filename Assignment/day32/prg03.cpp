@@ -86,6 +86,7 @@ int main()
 	Audi aObj(4, 4, "Petrol", 500000, "A4");
 	aObj.audiDisp();
 	cout << endl;
+	cout << endl;
 	Yamaha yObj(2, 5, 2, 200000, "1987");
 	yObj.yamahaDisp();
 }
