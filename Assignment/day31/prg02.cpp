@@ -12,7 +12,6 @@ public:
 		this->eid = eid;
 		this->name = name;
 	}
-	
 };
 
 class Developer :public Employee
@@ -36,7 +35,6 @@ public:
 	{
 		this->teamsize = teamsize;
 	}
-
 
 	void disp()
 	{
@@ -64,8 +62,6 @@ public:
 		cout <<"Salary based on coding and team " << teamSizeSal;
 	}
 };
-
-
 
 int main()
 {
