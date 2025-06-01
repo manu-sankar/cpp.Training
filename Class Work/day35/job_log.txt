@@ -1,0 +1,8 @@
+[INFO]Successfully loaded Jobs
+[INFO]Selected Priority Schudeling
+[DEBUG]Executing Job ID: 1 | Priority: 2 | ExecTime 718ms
+[DEBUG]Executing Job ID: 2 | Priority: 3 | ExecTime 153ms
+[DEBUG]Executing Job ID: 3 | Priority: 1 | ExecTime 121ms
+[DEBUG]Executing Job ID: 4 | Priority: 5 | ExecTime 184ms
+[DEBUG]Executing Job ID: 5 | Priority: 4 | ExecTime 137ms
+[INFO]All jobs executed in 0ms
