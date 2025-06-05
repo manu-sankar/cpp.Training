@@ -2,21 +2,21 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-
+using namespace std;
 int main() {
-    std::vector<std::string> words = { "Apple", "banana", "apple", "Orange", "BANANA", "grape" };
+    vector<string> words = { "Apple", "banana", "apple", "Orange", "BANANA", "grape" };
 
 
     for (auto& word : words)
     {
         for (auto& ch : word)
         {
-            ch = std::tolower(ch);
+            ch = tolower(ch);
         }
     }
 
 
-    std::sort(words.begin(), words.end());
+    sort(words.begin(), words.end());
 
 
     auto last = std::unique(words.begin(), words.end());
@@ -24,7 +24,7 @@ int main() {
 
 
     for (const auto& word : words) {
-        std::cout << word << " ";
+        cout << word << " ";
     }
 
     return 0;
