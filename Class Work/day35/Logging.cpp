@@ -170,6 +170,7 @@ public:
 		sort(arr.begin(), arr.end(),Compare());
 	}
 
+
 	void executeQueue(Logger &ob)
 	{
 		if (isPriority == true)
@@ -198,15 +199,15 @@ public:
 int main()
 {
 	while(1){
-		cout << "=====Jobchain Scheduler=====";
+		cout << "=====Jobchain Scheduler=====" << endl;
 		int options;
 		cout << "1. Load jobs from file" << endl;
-		cout << "2. Choose scheduling algorithm ";
-		cout << "a. FIFO(job ID)";
-		cout << "b. Priority Based";
-		cout << "3. Execute Jobs";
-		cout << "4. Export Log";
-		cout << "5. Exit";
+		cout << "2. Choose scheduling algorithm " << endl;
+		cout << "a. FIFO(job ID)" << endl;
+		cout << "b. Priority Based" << endl;
+		cout << "3. Execute Jobs" << endl;
+		cout << "4. Export Log" << endl;
+		cout << "5. Exit" << endl;
 		cin >> options;
 		char msg[20],alg;
 		Queue q;
