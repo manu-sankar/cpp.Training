@@ -40,8 +40,8 @@ class Processor
 private:
 	vector<int>memory;
 	unordered_map<string, int>registers;
-	int prgcounter = 0;
-	int memoryaddr = 0;
+	int prgcounter=0;
+	int memoryaddr=0;
 	bool isHalted = false;
 public:
 
@@ -53,7 +53,7 @@ public:
 		registers["CX"] = 0;
 		registers["DX"] = 0;
 	}
-
+	
 	//Load file
 	void load()
 	{
@@ -61,7 +61,7 @@ public:
 		ifstream fileIn;
 		try
 		{
-
+			
 			fileIn.open("instruction.txt");
 			if (!fileIn.is_open())
 			{
@@ -73,14 +73,14 @@ public:
 			cout << s << endl;
 		}
 		string line;
-		while (getline(fileIn, line))
+		while (getline(fileIn,line ))
 		{
 			if (!line.empty())
 			{
 				instr.push_back(line);
 			}
 		}
-
+		
 	}
 
 	int getValue(const string& op)
@@ -98,7 +98,7 @@ public:
 		{
 			return stoi(op);
 		}
-	}
+	}	
 };
 
 int setValue(const string& str, int val)
@@ -106,7 +106,5 @@ int setValue(const string& str, int val)
 
 	return val;
 }
-
-
 
 
