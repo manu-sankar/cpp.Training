@@ -111,26 +111,26 @@ private:
         string dest = args.substr(0, spacePos);
         string src = args.substr(spacePos + 1);
 
-        if (src[0] == '[') { // Memory address
+        if (src[0] == '[') { 
             int address = stoi(src.substr(1, src.size() - 2));
-            if (dest[0] == '[') { // Memory to Memory
+            if (dest[0] == '[') { 
                 int srcValue = memory.read(address);
                 int destAddress = stoi(dest.substr(1, dest.size() - 2));
                 memory.write(destAddress, srcValue);
             }
-            else { // Register to Memory
+            else { 
                 memory.write(stoi(dest.substr(1, dest.size() - 2)), registers.get(src));
             }
         }
-        else if (isdigit(src[0]) || src[0] == '-') { // Immediate value
-            if (dest[0] == '[') { // Memory
+        else if (isdigit(src[0]) || src[0] == '-') { 
+            if (dest[0] == '[') { 
                 memory.write(stoi(dest.substr(1, dest.size() - 2)), stoi(src));
             }
-            else { // Register
+            else { 
                 registers.set(dest, stoi(src));
             }
         }
-        else { // Register to Register
+        else {
             registers.set(dest, registers.get(src));
         }
     }
@@ -168,10 +168,6 @@ int main() {
         }
         instructions.push_back(line);
     }
-
-    processor.loadInstructions(instructions);
-    processor.execute(memory, registers);
-    processor.printSnapshot(memory, registers);
 
     return 0;
 }
