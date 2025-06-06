@@ -60,14 +60,14 @@ private:
 
 class Processor {
 public:
-    Processor() : pc(0), running(true) {}
+    Processor() : pc(0), isHalt(false) {}
 
     void loadInstructions(const vector<string>& instructions) {
         this->instructions = instructions;
     }
 
     void execute(Memory& memory, Registers& registers) {
-        while (running && pc < instructions.size()) {
+        while (!isHalt && pc < instructions.size()) {
             string instruction = instructions[pc];
             parseAndExecute(instruction, memory, registers);
             pc++;
@@ -82,13 +82,13 @@ public:
 
 private:
     int pc;
-    bool running;
+    bool isHalt;
     vector<string> instructions;
 
     void parseAndExecute(const string& instruction, Memory& memory, Registers& registers) {
         size_t firstSpace = instruction.find(' ');
         if (firstSpace == string::npos) {
-            if (instruction == "HLT") running = false;
+            if (instruction == "HLT") isHalt = true;
             return;
         }
 
@@ -122,7 +122,7 @@ private:
                 memory.write(stoi(dest.substr(1, dest.size() - 2)), registers.get(src));
             }
         }
-        else if (isdigit(src[0]) || src[0] == '-') { 
+        else if (isdigit(src[0]) || src[0] == '-') {
             if (dest[0] == '[') { 
                 memory.write(stoi(dest.substr(1, dest.size() - 2)), stoi(src));
             }
@@ -130,7 +130,7 @@ private:
                 registers.set(dest, stoi(src));
             }
         }
-        else {
+        else { 
             registers.set(dest, registers.get(src));
         }
     }
