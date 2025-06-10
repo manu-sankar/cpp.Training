@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 
+
 using namespace std;
 
 class Memory {
@@ -20,7 +21,7 @@ public:
         memory[address] = value;
     }
 
-    void printSnapshot() {
+    void disp() {  // Renamed from printSnapshot
         for (int i = 0; i < 16; ++i) {
             cout << i << " -> " << memory[i] << endl;
         }
@@ -47,7 +48,7 @@ public:
         registers[reg] = value;
     }
 
-    void disp() {
+    void disp() {  // No change needed, already named disp
         cout << "AX: " << registers["AX"] << endl;
         cout << "BX: " << registers["BX"] << endl;
         cout << "CX: " << registers["CX"] << endl;
@@ -66,6 +67,7 @@ public:
         this->instructions = instructions;
     }
 
+
     void execute(Memory& memory, Registers& registers) {
         while (!isHalt && pc < instructions.size()) {
             string instruction = instructions[pc];
@@ -74,10 +76,10 @@ public:
         }
     }
 
-    void printSnapshot(Memory& memory, Registers& registers) {
+    void disp(Memory& memory, Registers& registers) {  // Renamed from printSnapshot
         cout << "Received Interrupt" << endl;
         registers.disp();
-        memory.printSnapshot();
+        memory.disp();
     }
 
 private:
@@ -111,26 +113,26 @@ private:
         string dest = args.substr(0, spacePos);
         string src = args.substr(spacePos + 1);
 
-        if (src[0] == '[') { 
+        if (src[0] == '[') { // Memory address
             int address = stoi(src.substr(1, src.size() - 2));
-            if (dest[0] == '[') { 
+            if (dest[0] == '[') { // Memory to Memory
                 int srcValue = memory.read(address);
                 int destAddress = stoi(dest.substr(1, dest.size() - 2));
                 memory.write(destAddress, srcValue);
             }
-            else { 
+            else { // Register to Memory
                 memory.write(stoi(dest.substr(1, dest.size() - 2)), registers.get(src));
             }
         }
-        else if (isdigit(src[0]) || src[0] == '-') {
-            if (dest[0] == '[') { 
+        else if (isdigit(src[0]) || src[0] == '-') { // Immediate value
+            if (dest[0] == '[') { // Memory
                 memory.write(stoi(dest.substr(1, dest.size() - 2)), stoi(src));
             }
-            else { 
+            else { // Register
                 registers.set(dest, stoi(src));
             }
         }
-        else { 
+        else { // Register to Register
             registers.set(dest, registers.get(src));
         }
     }
@@ -168,6 +170,10 @@ int main() {
         }
         instructions.push_back(line);
     }
+
+    processor.loadInstructions(instructions);
+    processor.execute(memory, registers);
+    processor.disp(memory, registers);  // Changed from printSnapshot to disp
 
     return 0;
 }
