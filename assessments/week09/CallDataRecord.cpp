@@ -4,6 +4,8 @@
 #include<string>
 #include<vector>
 #include<fstream>
+#include<mutex>
+
 
 using namespace std;
 
@@ -45,19 +47,6 @@ public:
 			}
 		}
 	}
-
-	/*bool checkPassword(string pass)
-	{
-		if (pass == password)
-		{
-			return true;
-		}
-		else
-		{
-			cout << "Incorrect Password ";
-			return false;
-		}
-	}*/
 
 	bool userlogin()
 	{
@@ -150,6 +139,8 @@ public:
 	}
 };
 
+
+
 class CDR:public User
 {
 private:
@@ -173,10 +164,10 @@ public:
 		string line;
 		while (getline(inFile, line))
 		{
-			vector<string>characters;
-			
+			vector<string>characters=split(line,'|');
 		}
 	}
+
 
 
 	void CDRdisp()
@@ -210,22 +201,47 @@ public:
 class Operator
 {
 private:
-	string msisdn;
-	string brand;
 	string mmc;
-	string GPRS;
-	int duration;
-	string calltype;
-	int incomingcallwithin=0;
-	int incomingcalldiff=0;
-	int outgoingcallwithin=0;
-	int outgoingcalldiff=0;
-	int smswithin = 0;
-	int smsdiff = 0;
-	string mbupload;
-	string mbdownload;
-	vector<Customer>customerdata;
+	string brand;
+	vector<int>incomingcalls;
+	vector<int>outgoingcalls;
+	int smsreceivecount;
+	int smssendcount;
+	int mbupload;
+	int mbdownload;
+public:
+	Operator(string mmc, string brand):mmc(mmc),brand(brand)
+	{
+		smsreceivecount = 0;
+		smssendcount = 0;
+		mbupload = 0;
+		mbdownload = 0;
+	}
 
+	void incomingCall(int duration)
+	{
+		incomingcalls.push_back(duration);
+	}
+	void outgoingCall(int duration)
+	{
+		outgoingcalls.push_back(duration);
+	}
+	void smsSend()
+	{
+		smssendcount++;
+	}
+	void smsReceive()
+	{
+		smsreceivecount++;
+	}
+	void mbUpload()
+	{
+		mbupload++;
+	}
+	void mbDownload()
+	{
+		mbdownload++;
+	}
 };
 
 class Customer: public User
