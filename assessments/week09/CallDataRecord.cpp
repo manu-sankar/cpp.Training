@@ -240,42 +240,35 @@ public:
 		mbdownload++;
 	}
 
-	
 
-	void operatorBilling()
-	{
-		cout<<""
-	}
 };
 
-class Customer: public User
-{
-private:
-	int customerID;
+struct CustomerBilling {
 	string msisdn;
-	vector<int>incomingcallwithinoperator;
-	vector<int>incomingcalldiffoperator;
-	vector<int>outgoingcallwithinoperator;
-	vector<int>outgoingcalldiffoperator;
-	vector<string>MBUpload;
-	vector<string>MBDownload;
-public:
-	void getCustomerSame(string msisdn)
-	{
-		for (auto& c : incomingcallwithinoperator)
-		{
-			if (c.msisdn == msisdn)
-			{
-
-			}
-		}
-	}
-
-	void custDisp()
-	{
-
-	}
+	string brand;
+	string mmc;
+	int inInternal = 0, outInternal = 0;
+	int inExternal = 0, outExternal = 0;
+	int smsInInternal = 0, smsOutInternal = 0;
+	int smsInExternal = 0, smsOutExternal = 0;
+	int mbdownloaded = 0, mbuploaded = 0;
 };
+
+
+vector<CustomerBilling> customerData;
+
+CustomerBilling* getCustomer(string msisdn) {
+	for (auto& c : customerData)
+		if (c.msisdn == msisdn)
+			return &c;
+	customerData.push_back({ msisdn });
+	return &customerData.back();
+}
+
+
+
+
+
 
 int main()
 {
