@@ -43,7 +43,6 @@ public:
 				users.emplace_back(name, phoneno, username, password);
 				cout << "Successfully signedup " << endl;
 				return true;
-
 			}
 		}
 	}
@@ -140,7 +139,6 @@ public:
 };
 
 
-
 class CDR:public User
 {
 private:
@@ -164,11 +162,10 @@ public:
 		string line;
 		while (getline(inFile, line))
 		{
-			vector<string>characters=split(line,'|');
+			vector<string>characters;
+			
 		}
 	}
-
-
 
 	void CDRdisp()
 	{
@@ -242,12 +239,17 @@ public:
 	{
 		mbdownload++;
 	}
+	void operatorBilling()
+	{
+
+	}
 };
 
 class Customer: public User
 {
 private:
 	int customerID;
+	string msisdn;
 	vector<int>incomingcallwithinoperator;
 	vector<int>incomingcalldiffoperator;
 	vector<int>outgoingcallwithinoperator;
@@ -255,10 +257,21 @@ private:
 	vector<string>MBUpload;
 	vector<string>MBDownload;
 public:
-	
-	void dispCustomer()
+	void getCustomerSame(string msisdn)
 	{
-		cout << "Customer ID: " << customerID << endl;
+		for (auto& c : incomingcallwithinoperator)
+		{
+			if (c.msisdn == msisdn)
+			{
+
+			}
+		}
 	}
 };
+
+int main()
+{
+	User 
+
+}
 
