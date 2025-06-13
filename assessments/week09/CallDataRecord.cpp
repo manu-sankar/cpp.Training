@@ -110,33 +110,33 @@ public:
 		return password;
 	}
 
-	void display()
-	{
-		cout << "1. Signup " << endl;
-		cout << "2. Login " << endl;
-		cout << "3. Exit " << endl;
-		cout << "Enter your choice " << endl;
-		int options;
-		cin >> options;
-		switch (options)
-		{
-		default:
-			cout << "Invalid Options";
-			break;
-		case 1:
-			signup();
-			cout << "Signup " << endl;
-			break;
-		case 2:
-			userlogin();
-			cout << "Login " << endl;
-			break;
-		case 3:
-			exit(0);
-			break;
-		}
-	}
-};
+//	void display()
+//	{
+//		cout << "1. Signup " << endl;
+//		cout << "2. Login " << endl;
+//		cout << "3. Exit " << endl;
+//		cout << "Enter your choice " << endl;
+//		int options;
+//		cin >> options;
+//		switch (options)
+//		{
+//		default:
+//			cout << "Invalid Options";
+//			break;
+//		case 1:
+//			signup();
+//			cout << "Signup " << endl;
+//			break;
+//		case 2:
+//			userlogin();
+//			cout << "Login " << endl;
+//			break;
+//		case 3:
+//			exit(0);
+//			break;
+//		}
+//	}
+//};
 
 
 class CDR:public User
@@ -279,7 +279,31 @@ public:
 
 int main()
 {
-	User 
-
+	while (1)
+	{
+		cout << "1. Signup " << endl;
+		cout << "2. Login " << endl;
+		cout << "3. Exit " << endl;
+		cout << "Enter your choice " << endl;
+		int options;
+		cin >> options;
+		switch (options)
+		{
+		default:
+			cout << "Invalid Options";
+			break;
+		case 1:
+			signup();
+			cout << "Signup " << endl;
+			break;
+		case 2:
+			userlogin();
+			cout << "Login " << endl;
+			break;
+		case 3:
+			exit(0);
+			break;
+		}
+	}
 }
 
