@@ -239,9 +239,12 @@ public:
 	{
 		mbdownload++;
 	}
+
+	
+
 	void operatorBilling()
 	{
-
+		cout<<""
 	}
 };
 
@@ -266,6 +269,11 @@ public:
 
 			}
 		}
+	}
+
+	void custDisp()
+	{
+
 	}
 };
 
