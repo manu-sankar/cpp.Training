@@ -3,6 +3,7 @@
 #include<chrono>
 #include<string>
 #include<vector>
+#include<fstream>
 
 using namespace std;
 
@@ -109,10 +110,18 @@ public:
 	}
 };
 
-class Logger
+class CDR
 {
+private:
+	
+	string fileName;
 public:
-	void loggerDisp()
+	void incoming(bool isDiff)
+	{
+		if()
+	}
+
+	void CDRdisp()
 	{
 		cout << "Process CDR File " << endl;
 		cout << "Print/Search for Billing Process " << endl;
@@ -120,9 +129,6 @@ public:
 		cout << "Enter your choice " << endl;
 		int options;
 		cin >> options;
-
-
-
 		switch (options)
 		{
 		default:
@@ -162,6 +168,6 @@ public:
 	void dispCustomer()
 	{
 		cout << "Customer ID: " << customerID << endl;
-
 	}
 };
+
