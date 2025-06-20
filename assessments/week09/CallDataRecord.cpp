@@ -22,7 +22,8 @@ public:
 
 	bool signup()
 	{
-		string name, phoneno, username, password;
+		string name, username, password;
+		int phoneno;
 		cout << "Enter Name: " << endl;
 		cin >> name;
 		cout << "Enter Phone Number: " << endl;
@@ -33,18 +34,15 @@ public:
 		cin >> password;
 		for (auto& user : users)
 		{
-			if (user.username==username)
+			if (user.username == username)
 			{
 				cout << "User already exists " << endl;
 				return false;
 			}
-			else
-			{
-				users.emplace_back(name, phoneno, username, password);
-				cout << "Successfully signedup " << endl;
-				return true;
-			}
 		}
+		users.emplace_back(name, phoneno, username, password);
+		cout << "Successfully signedup " << endl;
+		return true;
 	}
 
 	bool userlogin()
@@ -149,7 +147,7 @@ public:
 		ifstream inFile("data.txt");
 		try
 		{
-			if (inFile.is_open());
+			if (inFile.is_open())
 			{
 				throw "File cannot be opened ";
 			}
@@ -240,9 +238,8 @@ public:
 	{
 		mbdownload++;
 	}
-
-
 };
+
 
 struct CustomerBilling {
 	string msisdn;
@@ -267,12 +264,9 @@ CustomerBilling* getCustomer(string msisdn) {
 }
 
 
-
-
-
 int main()
 {
-	while (1)
+	/*while (1)
 	{
 		cout << "1. Signup " << endl;
 		cout << "2. Login " << endl;
@@ -297,5 +291,5 @@ int main()
 			exit(0);
 			break;
 		}
-	}
+	}*/
 }
